@@ -1,0 +1,230 @@
+## urxvt 10t-vt configuration =)
+
+# general:
+URxvt.visualBell:        true
+URxvt.geometry:          250x70
+#URxvt.meta:             ignore
+URxvt.saveLines:         8192
+URxvt.scrollstyle:       plain
+URxvt.secondaryScroll:   true
+URxvt.scrollTtyOutput:   false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollWithBuffer:  true
+URxvt.scrollBar_right:   true
+URxvt.scrollBar_floating:false
+URxvt.cursorBlink:       true
+#URxvt*inheritPixmap:     true
+
+# for compatibility reasons (for remote logins):
+URxvt.termName:          rxvt
+
+# colors:
+URxvt.depth:             32
+URxvt.background:        rgba:0000/0000/0000/dddd
+#URxvt.background:        #000000 
+URxvt.foreground:        #ffffff
+URxvt.colorBD:           #ffffff
+# black   = Black/Grey25
+
+URxvt.color0:            #000000
+URxvt.color8:            #5f5f5f
+URxvt.color1:            #df0000
+URxvt.color9:            #ff0000
+URxvt.color2:            #00df00
+URxvt.color10:           #00ff00
+URxvt.color3:            #dfdf00
+URxvt.color11:           #ffff00
+URxvt.color4:            #0066df
+URxvt.color12:           #3366ff
+URxvt.color5:            #df00df
+URxvt.color13:           #ff00ff
+URxvt.color6:            #00dfdf
+URxvt.color14:           #00ffff
+URxvt.color7:            #dadada
+URxvt.color15:           #ffffff
+
+URxvt.highlightColor:   #909090
+URxvt.underlineColor:    yellow
+URxvt.throughColor:     #8080f0
+URxvt.scrollColor:       #553355
+
+# fonts:
+#URxvt.font:             9x15bold,\
+#                        -misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\
+#                        -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1, \
+#                        [codeset=JISX0208]xft:Kochi Gothic, \
+#                        xft:Bitstream Vera Sans Mono:autohint=true, \
+#                        xft:Code2000:antialias=false
+##URxvt.boldFont:        -xos4-terminus-bold-r-normal--14-140-72-72-c-80-iso8859-15
+##URxvt.italicFont:      xft:Bitstream Vera Sans Mono:italic:autohint=true
+##URxvt.boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true
+#urxvt.font:             xft:DejaVu Sans Mono:pixelsize=2:antialias=true:hinting=true
+#urxvt.boldFont:         xft:DejaVu Sans Mono:pixelsize=12:antialias=true:bold:hinting=true
+#urxvt.italicFont:       xft:DejaVu Sans Mono:pixelsize=12:antialias=true:italic:autohint=true:hinting=true
+#urxvt.bolditalicFont:   xft:DejaVu Sans Mono:pixelsize=12:antialias=true:bold:italic:autohint=true:hinting=true
+#URxvt.font:            *-*-fixed-medium-r-normal--*-120-*-*-*-*-iso8859-1
+#URxvt.font:             xft:Monospace:pixelsize=14
+#URxvt.font:             xft:Bitstream Vera Sans Mono:pixelsize=13
+#URxvt.font:             xft:Bitstream Vera Sans Mono-10
+#URxvt.font:             xft:DejaVu Sans Mono:antialias=false:pixelsize=11
+# URxvt.font:             xft:ProggySquareTT:size=12
+URxvt.font:             xft:ProggySquare:size=12
+#URxvt.font:             -lfp-gamow-medium-r-normal-*-*-90-*-*-c-*-iso8859-5
+#URxvt.keysym.C-0:       command:\033]710;-*-dina-medium-r-normal--13-*-*-*-*-*-*-*\007
+#URxvt.font:             -*-proggyclean-*-*-*-*-*-*-*-*-*-*-*-*,\
+#                        -etl-fixed-medium-r-*-*-*-160-*-*-*-*-*-*,\
+#                        -misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*
+#URxvt.font:             -misc-alpha beta brk-*-*-*-*-12-*-*-*-*-*-*-*
+URxvt.font:              -misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*
+URxvt.keysym.C-plus:     command:\033]710;8x13\007
+URxvt.keysym.C-minus:    command:\033]710;6x13\007
+URxvt.keysym.C-equal:    command:\033]710;-misc-fixed-*-*-*-*-13-*-*-*-*-*-*-*\007
+
+
+# xft hinting:
+Xft.dpi:                96
+Xft.hinting:            true
+Xft.hintstyle:          hintfull
+Xft.antialias:          rgba
+Xft.rgba:               rgb
+
+# printscr:
+URxvt.print-pipe:        cat > $(TMPDIR=$HOME mktemp urxvt.XXXXXX)
+
+# mouse selection boundaries:
+#URxvt.cutchars:         BACKSLASH `"'()*,;<>@[]{|}
+
+# cursor icons:
+#Xcursor.theme:           Neutral
+#Xcursor.theme:          whiteglass
+Xcursor.theme:          /usr/share/icons/redglass
+
+
+urxvt*scrollBar:              true 
+urxvt*cursorUnderline:        true
+# #urxvt*perl-ext-common: matcher,tabbed,selection-popup,option-popup,searchable-scrollback<M-s>,readline
+# urxvt*perl-ext-common: tabbed
+URxvt.keysym.C-M-r: perl:selection:rot13
+urxvt*martcher.button: 1
+
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg:    0
+URxvt.tabbed.tab-bg:    3
+
+#URxvt.tabbed.tabbar-fg: 81
+#URxvt.tabbed.tabbar-bg: 80
+#URxvt.tabbed.tab-fg:    7
+
+
+
+! Save this file as ~/.Xdefaults and start a term without any options to
+! see what it does.
+
+! Use ! for comments (if you don't like a certain setting)
+
+! The `Xterm' settings work for most terms like aterm, xterm, wterm and rxvt.
+
+! If changing things in this file doesn't result in changes in your term
+! you should run `xrdb -load ~/.Xdefaults'
+
+! Color section
+
+XTerm*background:  #000000
+XTerm*foreground:  #cfcfcf
+XTerm*cursorColor: #cdc092
+
+!black
+XTerm*color0:      #000000
+
+!red
+XTerm*color1:      #e01010
+
+!green
+XTerm*color2:      #20ad20
+
+!yellow
+XTerm*color3:      #d4c24f
+
+!blue
+XTerm*color4:      #231bb8
+
+!purple
+XTerm*color5:      #9c3885
+
+!cyan
+XTerm*color6:      #1dbdb8
+
+!white
+XTerm*color7:      #fefefe
+
+!bright-black
+XTerm*color8:      #6a6a6a
+
+!bright-red
+XTerm*color9:      #e83a3d
+
+!bright-green
+XTerm*color10:     #35e956
+
+!bright-yellow
+XTerm*color11:     #ffff2f
+
+!bright-blue
+XTerm*color12:     #3a53f0
+
+!bright-purple
+XTerm*color13:     #e628ba
+
+!bright-cyan
+XTerm*color14:     #1cf5f5
+
+!bright-white
+XTerm*color15:     #ffffff
+
+
+
+!                           Nice for manpages
+!
+!XTerm*underLine:           on
+!XTerm*colorMode:           on
+XTerm*colorBD:              lightyellow
+!XTerm*colorBDMode:         off
+XTerm*colorUL:              blue
+!XTerm*colorULMode:         on
+
+XTerm*dynamicColors:        on
+XTerm*highlightSelection:   true
+
+XTerm*eightBitInput:        false
+XTerm*metaSendsEscape:      true
+!XTerm*oldXtermFKeys:        true
+XTerm*charClass:             33:48,35-38:48,39:43,42-47:48,58-59:48,61:48,63-64:48,126:48
+!XTerm*charClass:             46-47:48,58:48,64:48,63:48,95:48,126:48,61:48,37:48,35:48,43:48,36:48
+
+! Other settings
+
+XTerm*VT100.Translations: #override \
+             <Key>BackSpace: string(0x7F)
+!\n\
+!               <Key>Delete:    string("\033[3~")\n\
+!             <Key>Home:      string("\033OH")\n\
+!               <Key>End:       string("\033[4~")
+!              <Key>Home:      string("\033[1~")\n\
+XTerm*ttyModes: erase ^?
+
+! Suggested by denek
+! *VT100*backarrowKey: false
+
+!XTerm*backarrowKeyIsErase:  true
+!XTerm*backarrowKey:         true
+!XTerm*borderWidth:         0 doesn't do anything
+XTerm*internalBorder:       0
+!XTerm*modifier:             alt
+XTerm*saveLines:            2048
+XTerm*scrollBar:            false
+!XTerm*titeInhibit:         true
+
+#XTerm*faceName:             Vera sans mono
+#XTerm*faceSize:             15
+#XTerm*termName:             xterm-xfree86
