@@ -1,0 +1,31 @@
+# Autoconf
+
+ mkdir autoconf
+ pushd autoconf/
+
+ wget https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.xz
+ tar xvf autoconf-2.69.tar.xz
+ cd autoconf-2.69
+
+ ./configure --prefix=$HOME/usr
+ make -j 12
+ make install
+
+ popd
+
+
+# Automake
+
+ mkdir automake
+ pushd automake
+
+ wget https://ftp.gnu.org/gnu/automake/automake-1.15.tar.xz
+ tar xvf automake-1.15.tar.xz
+ cd automake-1.15
+
+# Force my path to override the system path
+ PATH=~/usr/bin:$PATH ./configure --prefix=$HOME/usr
+ make -j 12
+ make install
+
+ popd

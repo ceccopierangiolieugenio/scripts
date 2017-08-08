@@ -1,0 +1,12 @@
+# Set Global folder to "$HOME/usr"
+
+ echo "prefix = ~/usr" >> ~/.npmrc
+
+
+# Install http-server (Globally)
+ npm install http-server -g
+
+# Start http-server
+ http-server -p 8080
+
+

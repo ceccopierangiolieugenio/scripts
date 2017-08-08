@@ -1,0 +1,22 @@
+mkdir Varie
+cd Varie/
+
+
+# Pull sources and get the Version (2.5)
+
+git clone https://github.com/tmux/tmux.git
+cd tmux/
+
+git checkout 2.5
+
+
+# Autogen - local prefix
+  ./autogen.sh --prefix=$HOME/usr
+
+# Configure - local prefix
+  ./configure --prefix=$HOME/usr
+
+# Build
+ make LDFLAGS='-L/usr/local/lib/ -lresolv' CFLAGS=-I/usr/local/include/ -j 12
+ make install
+
