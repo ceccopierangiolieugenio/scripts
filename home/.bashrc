@@ -22,3 +22,12 @@ alias grep="grep --color"
 export HISTCONTROL=ignoredups
 export PATH=~/usr/bin:$PATH
 
+# With the configuration below,
+# I assume that all the local packages are
+# installed inside ~/usr
+
+export MANPATH=$MANPATH:~/usr/share/man
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/usr/lib/pkgconfig/
+
+alias lib="LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib/ "
+
