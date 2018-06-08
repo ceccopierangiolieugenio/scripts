@@ -3,7 +3,7 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-. colors.source
+. ~/colors.source
 
 __PTY="${Yellow}\l "
 __USER="${Red}\u "
