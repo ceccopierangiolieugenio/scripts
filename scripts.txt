@@ -4,4 +4,6 @@
 # Configure - local prefix
   ./configure --prefix=$HOME/usr
 
+# Community driven documentation
+curl cheat.sh
 

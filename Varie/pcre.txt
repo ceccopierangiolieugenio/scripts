@@ -1,0 +1,17 @@
+# pcre - Perl Compatible Regular Expressions
+
+mkdir -p pcre
+pushd pcre
+
+wget https://ftp.pcre.org/pub/pcre/pcre-8.41.zip
+unzip pcre-8.41.zip
+pushd pcre-8.41/
+
+
+./configure --prefix=$HOME/usr
+
+make -j 16
+make install
+
+popd
+

@@ -1,0 +1,20 @@
+# ag  - The Silver Searcher
+#   dep: pcre
+
+mkdir ag
+pushd ag
+
+git clone https://github.com/ggreer/the_silver_searcher.git
+pushd the_silver_searcher/
+git checkout 2.0.0
+
+# Autogen - local prefix
+  ./autogen.sh --prefix=$HOME/usr
+
+# Configure - local prefix
+  ./configure --prefix=$HOME/usr
+
+
+
+popd
+popd

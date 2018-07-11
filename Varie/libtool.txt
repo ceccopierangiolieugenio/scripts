@@ -1,0 +1,19 @@
+# Libtool
+
+mkdir -p libtool
+pushd libtool
+
+git clone git://git.savannah.gnu.org/libtool.git
+
+pushd libtool
+git checkout v2.4.6
+
+# Autogen - local prefix
+  ./autogen.sh --prefix=$HOME/usr
+
+# Configure - local prefix
+  ./configure --prefix=$HOME/usr
+
+popd
+popd
+

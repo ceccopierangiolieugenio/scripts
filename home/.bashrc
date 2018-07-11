@@ -3,7 +3,7 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-. colors.source
+. ~/colors.source
 
 __PTY="${Yellow}\l "
 __USER="${Red}\u "
@@ -37,4 +37,17 @@ export MANPATH=$MANPATH:~/usr/share/man
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:~/usr/lib/pkgconfig/
 
 alias lib="LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/usr/lib/ "
+
+# Emulate ag if missing
+which ag >/dev/null 2>&1 ;
+if [ $? == 1 ] ;
+    then
+        function ag {
+          if [ -z $2 ] ;
+            then FOLDER='.' ;
+            else FOLDER=$2  ;
+          fi ;
+          grep $1 ${FOLDER} -r -n 2>/dev/null ;
+        } ;
+fi
 
