@@ -1,0 +1,23 @@
+# pkg-config
+
+mkdir -p pkg-config
+pushd pkg-config
+
+git clone git://anongit.freedesktop.org/pkg-config
+pushd pkg-config
+
+git checkout pkg-config-0.29.2
+
+# Autogen - local prefix
+  ./autogen.sh --prefix=$HOME/usr
+
+# Configure - local prefix
+  ./configure --prefix=$HOME/usr
+
+make -j 12
+
+make install
+
+popd
+
+popd
