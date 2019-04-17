@@ -1,22 +1,10 @@
 " .vimrc
 "
-" (Cl) 27/o4/2oo5 by 10t8or and others (Smylers, etc)
-" http://www.10t8or.com
-" 
-" This file contains no control codes and no `top bit set' characters above the
-" normal Ascii range, and all lines contain a maximum of 79 characters.  With a
-" bit of luck, this should make it resilient to being uploaded, downloaded,
-" e-mailed, posted, encoded, decoded, transmitted by morse code, or whatever.
-"
-" =)
-
 " Reference keys (to print out and put above your keyboard! ;):
 "
-"         F1      F2      F3      F4      F5      F6      F7      F8      F9     F10     F11     F12
-" UnMod NxFile HighSrc Search  SetPaste CopyLn  NxWind SplitWn  Format   HilCor Save   NxTAGWn  NxTAG
-" Shift PrFile HighChr Src ID  Cmp CTAG PasteLn PrWind BrowsSpl Reindent UnlCor SaveQ  CloseWn  PrTAG
+"         F1      F2      F3         F4      F5      F6      F7      F8      F9     F10     F11     F12
+" UnMod  NxFile  PrFile  Expandtabs SetPaste 
 "
-
 
 " first clear any existing autocommands:
 autocmd!
@@ -30,6 +18,7 @@ endif
 
 " have fifty lines of command-line (etc) history:
 set history=70
+
 " remember all of these between sessions, but only 10 search terms; also
 " remember info for 10 files, but never any on removable disks, don't remember
 " marks in files, don't rehighlight old search patterns, and only save up to
@@ -157,10 +146,6 @@ autocmd FileType html set formatoptions+=tl
 " (despite the mappings later):
 " autocmd FileType make set noexpandtab shiftwidth=8
 
-" File tipe definition for boiler project by Zad ;)
-" boiler
-autocmd BufNewFile,BufRead *.bt,*.hbt,*.cbt,*.bl,*.be,*.bi :set syntax=c
-
 " * Search & Replace
 
 " make searches case-insensitive, unless they contain upper-case letters:
@@ -169,9 +154,6 @@ set smartcase
 
 " show the `best match so far' as search strings are typed:
 set incsearch
-
-" assume the /g flag on :s substitutions to replace all matches in a line:
-"set gdefault
 
 " higlight search
 set hlsearch
@@ -183,19 +165,6 @@ set hlsearch
 " below:
 let IspellLang = 'british'
 let PersonalDict = '~/.ispell_' . IspellLang
-
-" try to avoid misspelling words in the first place -- have the insert mode
-" <Ctrl>+N/<Ctrl>+P keys perform completion on partially-typed words by
-" checking the Linux word list and the personal `Ispell' dictionary; sort out
-" case sensibly (so that words at starts of sentences can still be completed
-" with words that are in the dictionary all in lower case):
-execute 'set dictionary+=' . PersonalDict
-set dictionary+=/usr/dict/words
-set complete=.,w,k
-set infercase
-
-" In visual mode, substitute selected text with yyanked one =)
-vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc>
 
 " mappa gf per andare nel file sotto al cursore ma aprire una nuova finestra
 map gf :sfind <cfile><CR>
@@ -237,64 +206,8 @@ nmap <S-F9> \sc
 " wrap in insert mode:
 set whichwrap=h,l,~,[,],<,>
 
-" page down with <Space> (like in `Lynx', `Mutt', `Pine', `Netscape Navigator',
-" `SLRN', `Less', and `More'); page up with - (like in `Lynx', `Mutt', `Pine'),
-" or <BkSpc> (like in `Netscape Navigator'):
-noremap <Space> <PageDown>
-noremap <BS> <Up>
-" [<Space> by default is like l, <BkSpc> like h]
-
-" scroll the window (but leaving the cursor in the same place) by one
-" line up/down with +/-:
-noremap - <C-Y>
-noremap + <C-E>
-"noremap <C--> 2<C-E>
-"noremap <C-+> 2<C-Y>
-" [<Ins> by default is like i, and <Del> like x.]
-
-" use <Ctrl>+N/<Ctrl>+P to cycle through files:
-nnoremap <C-N> :next<CR>
-nnoremap <C-P> :prev<CR>
-" [<Ctrl>+N by default is like j, and <Ctrl>+P like k.]
-
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
-
-
-" * Keystrokes -- Formatting
-
-" have Q reformat the current paragraph (or selected text if there is any):
-nnoremap Q gqap
-vnoremap Q gq
-" or the whole document:
-nnoremap ,Q gggqG
-" justifica tutto il testo..
-nmap ,q _j
-
-" have the usual indentation keystrokes still work in visual mode:
-vnoremap <C-T> >
-vnoremap <C-D> <LT>
-vmap <C-Tab> <C-T>
-vmap <S-Tab> <C-D>
-
-" have Y behave analogously to D and C rather than to dd and cc (which is
-" already done by yy):
-noremap Y y$
-
-" Function to comment the a selected region in visual mode
-function! Komment()
-  if getline(".") =~ '\/\*'
-    let hls=@/
-    s/^\/\*//
-    s/*\/$//
-    let @/=hls
-  else
-    let hls=@/
-    s/^/\/*/
-    let @/=hls
-endfunction
-vmap k v`<I<CR><esc>k0i/*<ESC>`>I<CR><esc>k0i*/<ESC>'
-vmap p v`<I<CR><esc>k0i{<ESC>`>I<CR><esc>k0i}<ESC>''
 
 " * Keystrokes -- Toggles
 
@@ -307,30 +220,8 @@ vmap p v`<I<CR><esc>k0i{<ESC>`>I<CR><esc>k0i}<ESC>''
 " page, and have it do this from any mode:
 nnoremap <F1> :bnext!<CR>
 imap <F1> <ESC> :bnext!<CR>
-noremap <S-F1> :bprevious! <CR>
-imap <S-F1> <ESC> :bprevious! <CR>
-"nnoremap <F1> za
-"inoremap <F1> <C-O>za
-"nnoremap <S-F1> zi
-"inoremap <S-F1> <C-O>zi
-"nnoremap <C-F1> :mkview
-"inoremap <C-F1> <ESC>:mkview
-
-" have \th ("toggle highlight") toggle highlighting of search matches, and
-" report the change:
-" have \tl ("toggle list") toggle list on/off and report the change:
-nnoremap \th :set invhls hls?<CR>
-nmap <F2> \th
-imap <F2> <C-O>\th
-nnoremap \tl :set invlist list?<CR>
-nmap <S-F2> \tl
-imap <S-F2> <C-O>\tl
-
-" <F3> search <S-F3> search next identifyer
-nmap <F3> /
-imap <F3> <C-O>/ 
-nmap <S-F3> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
-imap <S-F3> <C-O>[I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+noremap <F2> :bprevious! <CR>
+imap <F2> <ESC> :bprevious! <CR>
 
 " have \tp ("toggle paste") toggle paste on/off and report the change, and
 " where possible also have <F4> do this both in normal and insert mode:
@@ -339,103 +230,10 @@ nmap <F4> \tp
 imap <F4> <C-O>\tp
 set pastetoggle=<F4>
 
-" copia/incolla riga
-nnoremap <F5> yy
-nnoremap <S-F5> P
-inoremap <F5> <C-O>yy
-inoremap <S-F5> <C-O>P
+nnoremap \tet :set invexpandtab expandtab?<CR>
+nmap <F3> \tet
+imap <F3> <C-O>\tet
 
-" use <F6> to cycle through split windows (and <Shift>+<F6> to cycle backwards,
-" where possible):
-nnoremap <F6> <C-W>w
-nnoremap <S-F6> <C-W>W
-inoremap <F6> <C-O><C-W>w
-inoremap <S-F6> <C-O><C-W>W
-
-" use <F7> to split <F7> to browse split
-nmap <F7> :browse edit .<CR>
-imap <F7> <C-O>:browse edit .<CR>
-nmap <S-F7> :browse split .<CR>
-imap <S-F7> <C-O>:browse split .<CR>
-
-" use <F8> to
-nmap <F8> ,Q'"<CR>
-imap <F8> <C-O>,Q'"<CR>
-nmap <S-F8> gg=G''
-imap <S-F8> <ESC>gg=G''
-
-" use <F10> to save <S-F10> to save and quit
-nmap <F10> :wall<CR>
-imap <F10> <C-O>:wall<CR>
-nmap <S-F10> :wq<CR>
-imap <S-F10> <C-O>:wq<CR>
-
-" use <F11> next tag new window <S-F11> close window
-nmap <F11> <C-W>]
-imap <F11> <C-O><C-W>]
-nmap <S-F11> :close<CR>
-imap <S-F11> <C-O>:close<CR>
-
-" use <F12> next tag <S-F12> previous tag
-nmap <F12> <C-]>
-imap <F12> <C-O><C-]>
-nmap <S-F12> <C-T>
-imap <S-F12> <C-O><C-T>
-
-nmap ,t :!(cd %:p:h;ctags *)&<CR>
-nmap <S-F4> :!(cd %:p:h;ctags *)&<CR>
-imap <S-F4> <C-O>:!(cd %:p:h;ctags *)&<CR> 
-
-
-" * Keystrokes -- Insert Mode
-
-"like emacs
-noremap <C-x>s :wall<CR>
-imap <C-x>s <ESC>:wall<CR>
-noremap <C-x>c :q<CR>
-imap <C-x>c <ESC>:q<CR>
-noremap <C-x><C-b> :ls<CR>
-imap <C-x><C-b> <ESC>:ls<CR>
-imap <S-Tab> <ESC>==A
-noremap <C-x><C-f> :hide edit
-imap <C-x><C-f> <ESC>:hide edit
-noremap <C-x>b :bprevious!<CR>
-imap <C-x>b <ESC>:bprevious!<CR>
-noremap <C-s> /
-imap <C-s> <ESC>/
-noremap <C-g> <ESC>
-imap <C-g> <ESC>
-" Visual mode
-"imap <silent> <C-Space> <C-r>=<SID>StartVisualMode()<CR>
-"noremap <silent> <C-Space> <C-r>=<SID>StartVisualMode()<CR>
-"imap <C-x><C-b>
-
-
-" allow <BkSpc> to delete line breaks, beyond the start of the current
-" insertion, and over indentations:
-set backspace=eol,start,indent
-
-" have <Tab> (and <Shift>+<Tab> where it works) change the level of
-" indentation:
-"inoremap <Tab> <C-T>
-"inoremap <S-Tab> <C-D>
-" [<Ctrl>+V <Tab> still inserts an actual tab character.]
-
-" Strip blanks at end of line =)
-"nnoremap \ss :%s/{TAB}*$//
-
-" DOS2UNIX =)
-"nnoremap \sd :1,$ s/{ctrl-V}{ctrl-M}//
-
-" abbreviations:
-" correct my common typos without me even noticing them:
-iabbrev tetn tent
-iabbrev tnet tent
-iabbrev ceh che
-iabbrev cmq comunque
-iabbrev teh the
-cabbrev WQ wq
-cabbrev Wq wq
 
 " end of .vimrc
 
