@@ -36,7 +36,7 @@ make
 make install DESTDIR=/out
 
 cd /out
-zip /share/lzo-2.10.x86_64-w64-mingw32.zip . -r -9
+zip /share/${LZO_PKG}.x86_64-w64-mingw32.zip . -r -9
 
 chmod 666 /share/*.zip
 __END
