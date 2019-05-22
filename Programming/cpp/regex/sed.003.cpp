@@ -5,7 +5,7 @@
 
 /*
  * Trying to replicate:
- *    echo "quick brown fox" | sed     's,[^ ]* \([^ ]*\) [^ ]*,slow \1 cat,'
+ *    echo "quick brown fox" | sed   's,[^ ]* \([^ ]*\) [^ ]*,slow \1 cat,'
  * in:
  *    g++ sed.003.cpp
  *    echo "quick brown fox" | ./a.* 's,[^ ]* ([^ ]*) [^ ]*,slow \1 cat,'
