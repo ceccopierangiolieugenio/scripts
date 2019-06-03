@@ -3,6 +3,10 @@ Ths is a Placeholder for some helper scripts I commonly use to bring up standalo
 
 ## [antiX](https://antixlinux.com/) basic
 
-Run the [antiX](https://antixlinux.com/) [iso](https://netix.dl.sourceforge.net/project/antix-linux/Final/antiX-17.4/antiX-17.4.1_x64-net.iso) using [VirtualBox](https://www.virtualbox.org/)/[VMware](https://www.vmware.com/),[QEMU](https://www.qemu.org/).
+Run the [antiX](https://antixlinux.com/) [iso](https://netix.dl.sourceforge.net/project/antix-linux/Final/antiX-17.4/antiX-17.4.1_x64-net.iso) using [VirtualBox](https://www.virtualbox.org/), [VMware](https://www.vmware.com/), [QEMU](https://www.qemu.org/), ...
+
 iso: [antiX-17.4.1_x64-net.iso](https://netix.dl.sourceforge.net/project/antix-linux/Final/antiX-17.4/antiX-17.4.1_x64-net.iso)
 
+Once the bash prompt is available run:
+
+    wget -q -O - http://ceccopierangiolieugenio.github.io/vm/antix.sh | /bin/sh -x 
