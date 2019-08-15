@@ -3,3 +3,5 @@
 	email = ceccopierangiolieugenio@googlemail.com
 [alias]
 	hist = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short
+	# Colorized
+	# hist = log --pretty=format:'%Cred%h %Cgreen%ad %C(Yellow)|%Creset %s%C(Cyan)%d%Creset [%C(Yellow)%an%Creset]' --graph --date=short
