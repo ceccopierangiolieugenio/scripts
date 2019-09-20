@@ -16,6 +16,16 @@ if has('syntax') && (&t_Co > 2)
   syntax on
 endif
 
+" use pathogen to handle the Runtime Path Manipulation and plugins
+" https://github.com/tpope/vim-pathogen
+"  Install:
+"     mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+"     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+execute pathogen#infect()
+
+" Associate all config files in .ssh as sshconfig
+au BufNewFile,BufRead ssh_config,*/.ssh/*config*	setf sshconfig
+
 " have fifty lines of command-line (etc) history:
 set history=70
 
@@ -215,6 +225,8 @@ set matchpairs+=<:>
 " mode keystrokes beginning \t but some function keys (which won't work in all
 " terminals) are also mapped.
 
+" Map NERDTree to CTRL-n
+map <C-n> :NERDTreeToggle<CR>
 
 " have <F1> prompt for a help topic, rather than displaying the introduction
 " page, and have it do this from any mode:
