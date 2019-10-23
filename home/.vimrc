@@ -11,9 +11,19 @@ autocmd!
 
 " * User Interface
 
+" Workaround to fix colorscheme on TMUX
+set background=dark
+set t_Co=256
+
 " have syntax highlighting in terminals which can display colours:
 if has('syntax') && (&t_Co > 2)
   syntax on
+endif
+
+" set mouse drag if we are in a tmux env
+if $TMUX != ''
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
 endif
 
 " use pathogen to handle the Runtime Path Manipulation and plugins

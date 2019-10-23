@@ -10,7 +10,6 @@ m = re.search('(?<=abc)def', 'abcdef')
 
 print(m.group(0))
 
-pattern = re.compile('\(Eugenio\) Parodi \(\D{2,4}\).*')
 pattern = re.compile('(Eugenio) Parodi (\d{2,4})([^ ]*) (franco|ciccio)')
 
 match = pattern.match('Eugenio Parodi 1234567890 ciccio')
