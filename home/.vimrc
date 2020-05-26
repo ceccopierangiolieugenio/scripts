@@ -28,9 +28,12 @@ endif
 
 " use pathogen to handle the Runtime Path Manipulation and plugins
 " https://github.com/tpope/vim-pathogen
-"  Install:
+"  Install Pathogen:
 "     mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 "     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+"  Install lightline and NerdTree:
+"     git clone https://github.com/preservim/nerdtree.git  ~/.vim/bundle/nerdtree
+"     git clone https://github.com/itchyny/lightline.vim  ~/.vim/bundle/lightline.vim
 execute pathogen#infect()
 
 " Associate all config files in .ssh as sshconfig
