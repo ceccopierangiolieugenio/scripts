@@ -26,7 +26,11 @@ export EDITOR=vim
 alias ll="ls -la --color"
 alias grep="grep --color"
 
+export GOPATH=~/github/go
+export GOROOT=~/usr/go
+
 export HISTCONTROL=ignoredups
+export PATH=~/.local/bin/:~/usr/bin:${GOROOT}/bin:$PATH:$HOME/node/bin
 export PATH=~/usr/bin:$PATH
 
 # With the configuration below,
