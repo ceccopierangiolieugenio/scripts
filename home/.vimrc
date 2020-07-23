@@ -37,7 +37,7 @@ endif
 execute pathogen#infect()
 
 " Associate all config files in .ssh as sshconfig
-au BufNewFile,BufRead ssh_config,*/.ssh/*config*	setf sshconfig
+au BufNewFile,BufRead ssh_config,*/.ssh/*config*,~/Inmarsat/ssh/*/*config*	setf sshconfig
 
 " have fifty lines of command-line (etc) history:
 set history=70
