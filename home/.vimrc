@@ -34,7 +34,14 @@ endif
 "  Install lightline and NerdTree:
 "     git clone https://github.com/preservim/nerdtree.git  ~/.vim/bundle/nerdtree
 "     git clone https://github.com/itchyny/lightline.vim  ~/.vim/bundle/lightline.vim
+"     git clone https://github.com/ryanoasis/vim-devicons.git ~/.vim/bundle/vim-devicons
 execute pathogen#infect()
+
+" required by vim-devicons
+" get patched nerd-font:
+"   mkdir ~/.fonts
+"   wget https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Bold/complete/DejaVu%20Sans%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf  -P ~/.fonts
+set encoding=UTF-8
 
 " Associate all config files in .ssh as sshconfig
 au BufNewFile,BufRead ssh_config,*/.ssh/*config*,~/Inmarsat/ssh/*/*config*	setf sshconfig
