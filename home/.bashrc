@@ -30,6 +30,7 @@ export GOPATH=~/github/go
 export GOROOT=~/usr/go
 
 export HISTCONTROL=ignoredups
+export HISTTIMEFORMAT="%d/%m/%y %T "
 export PATH=~/.local/bin/:~/usr/bin:${GOROOT}/bin:$PATH:$HOME/node/bin
 export PATH=~/usr/bin:$PATH
 
