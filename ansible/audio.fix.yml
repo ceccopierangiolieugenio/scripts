@@ -1,0 +1,16 @@
+
+- name: "Fix chipmunk effect with headset"
+  hosts: localhost
+  # become: true
+  tags:
+    - audio
+  tasks:
+    - name: force the sample rate
+      lineinfile:
+          path: /etc/pulse/daemon.conf
+          state: present
+          regexp: '; alternate-sample-rate = 48000'
+          line:     'alternate-sample-rate = 48000'
+    - name: Restart audio daemon
+      shell: pulseaudio -k && sudo alsa force-reload
+
