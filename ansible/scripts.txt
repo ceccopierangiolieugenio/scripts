@@ -1,0 +1,3 @@
+# Ansible fix for the 'chipmunk' efffect
+# https://forums.linuxmint.com/viewtopic.php?t=328790
+sudo ansible-playbook -c local -i localhost, audio.fix.yml
