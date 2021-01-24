@@ -10,3 +10,12 @@ ansible-playbook -c local -i localhost, vim.yml -vv
 
 # install config tmux
 ansible-playbook -c local -i localhost, tmux.yml -vv
+
+# install golang
+# I assume those env variables already set:
+#  GOPATH=${HOME}/github/go
+#  GOROOT=${HOME}/usr/go
+#  PATH=${GOROOT}/bin:${PATH}
+mkdir ${HOME}/usr
+wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
+tar xvf go1.15.7.linux-amd64.tar.gz -C ${HOME}/usr
