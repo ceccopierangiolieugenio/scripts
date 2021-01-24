@@ -1,0 +1,31 @@
+- name: "Install - Configure terminator and nerdfonts"
+  hosts: localhost
+  # become: true
+  tags:
+    - terminator
+  tasks:
+    - name: install terminator
+      package:
+        name: terminator
+        state: present
+
+    - name: Set the folders
+      file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - "~/.config/terminator/"
+        - "~/.fonts/"
+
+    - name: Config terminator
+      copy:
+        src: ../home/.config/terminator/config
+        dest: ~/.config/terminator/config
+        mode: '0644'
+
+    - name: configure the NerdFont required
+      get_url:
+        url: https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Bold/complete/DejaVu%20Sans%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf
+        dest: "~/.fonts/DejaVu Sans Mono Bold Nerd Font Complete Mono.ttf"
+        mode: '0440'
+

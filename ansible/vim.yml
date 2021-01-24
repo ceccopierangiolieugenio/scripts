@@ -1,0 +1,48 @@
+- name: "Install - Configure vim"
+  hosts: localhost
+  # become: true
+  tags:
+    - vim
+  tasks:
+    - name: install vim
+      package:
+        name: vim
+        state: present
+
+    - name: Set the folders
+      file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - "~/.vim/"
+        - "~/.vim/autoload"
+        - "~/.vim/bundle"
+
+    - name: Config vim
+      copy:
+        src: ../home/.vimrc
+        dest: ~/.vimrc
+        mode: '0644'
+
+    - name: Install pathogen
+      get_url:
+        url: https://tpo.pe/pathogen.vim
+        dest: "~/.vim/autoload/pathogen.vim"
+        mode: '0440'
+
+    - name: Install NerdTree
+      git:
+        repo: https://github.com/preservim/nerdtree.git
+        dest: ~/.vim/bundle/nerdtree
+
+    - name: Install lightline
+      git:
+        repo: https://github.com/itchyny/lightline.vim
+        dest: ~/.vim/bundle/lightline.vim
+
+    - name: Install vim-devicons
+      git:
+        repo: https://github.com/ryanoasis/vim-devicons.git
+        dest: ~/.vim/bundle/vim-devicons
+
+
