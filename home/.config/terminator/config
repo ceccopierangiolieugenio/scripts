@@ -1,13 +1,25 @@
 [global_config]
+  handle_size = 0
   geometry_hinting = True
-  scroll_tabbar = True
+  window_state = maximise
   title_font = Ani 9
 [keybindings]
+  go_up = <Shift><Alt>Up
   go_down = <Shift><Alt>Down
   go_left = <Shift><Alt>Left
   go_right = <Shift><Alt>Right
-  go_up = <Shift><Alt>Up
   help = <Primary><Shift>F1
+[profiles]
+  [[default]]
+    background_darkness = 0.95
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = DejaVuSansMono Nerd Font Mono Bold 9
+    foreground_color = "#ffffff"
+    scrollback_lines = 50000
+    word_chars = "-,./?%&#:_~"
+    use_system_font = False
+    copy_on_selection = True
 [layouts]
   [[default]]
     [[[child1]]]
@@ -19,14 +31,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    background_darkness = 0.95
-    background_type = transparent
-    copy_on_selection = True
-    cursor_color = "#aaaaaa"
-    font = DejaVu Sans Mono Bold 9
-    foreground_color = "#ffffff"
-    scrollback_lines = 50000
-    use_system_font = False
-    word_chars = "-,./?%&#:_~"
