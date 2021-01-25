@@ -11,7 +11,7 @@
     apt install ansible
     
     mkdir -p ~/github
-    git clone https://github.com/ceccopierangiolieugenio/scripts.git ~/github/    scripts
+    git clone https://github.com/ceccopierangiolieugenio/scripts.git ~/github/scripts
     
     # Install VScode
     wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode.deb
