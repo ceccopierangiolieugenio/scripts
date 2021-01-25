@@ -11,6 +11,9 @@ ansible-playbook -c local -i localhost, vim.yml -vv
 # install config tmux
 ansible-playbook -c local -i localhost, tmux.yml -vv
 
+# install aws terraform kubectl
+ansible-playbook -c local -i localhost, aws.yml -vv
+
 # install golang
 # I assume those env variables already set:
 #  GOPATH=${HOME}/github/go

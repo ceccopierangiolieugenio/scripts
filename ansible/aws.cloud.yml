@@ -1,0 +1,45 @@
+- name: "Install - Configure AWS and Cloud stuff"
+  hosts: localhost
+  # become: true
+  tags:
+    - aws,terraform
+  tasks:
+    - name: install aws
+      become: yes
+      package:
+        name: awscli
+        state: present
+
+    - name: Set the folders
+      file:
+        path: "{{ item }}"
+        state: directory
+      loop:
+        - "~/usr/"
+        - "~/usr/bin/"
+        - "/tmp/pappero/pippero"
+
+    - name: Install aws-iam-authenticator
+      get_url:
+        url: https://amazon-eks.s3.us-west-2.amazonaws.com/1.18.9/2020-11-02/bin/linux/amd64/aws-iam-authenticator
+        dest: "~/usr/bin/aws-iam-authenticator"
+        mode: '0550'
+
+    - name: install terraform 0.11.9
+      ansible.builtin.unarchive:
+        src: https://releases.hashicorp.com/terraform/0.11.9/terraform_0.11.9_linux_amd64.zip
+        dest: ~/usr/bin/
+        remote_src: yes
+
+    - name: Get latest kubectl version      
+      shell: curl -L -s https://dl.k8s.io/release/stable.txt
+      check_mode: no
+      delegate_to: localhost
+      register: kubectl_version
+    
+    - name: Install kubectl
+      get_url:
+        url: "https://dl.k8s.io/release/{{ kubectl_version.stdout }}/bin/linux/amd64/kubectl"
+        dest: ~/usr/bin
+        mode: '0550'
+
