@@ -1,5 +1,10 @@
 package main
 
+/* 
+    this source is extracted from:
+    https://golang.org/doc/articles/wiki/#tmp_2
+*/
+
 import (
 	"fmt"
 	"io/ioutil"
