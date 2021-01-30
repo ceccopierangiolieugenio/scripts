@@ -22,12 +22,12 @@ alias ll="ls -la --color"
 alias grep="grep --color"
 
 export GOPATH=~/github/go
+export GOBIN=${GOPATH}/bin
 export GOROOT=~/usr/go
 
 export HISTCONTROL=ignoredups
 export HISTTIMEFORMAT="%d/%m/%y %T "
-export PATH=~/.local/bin/:~/usr/bin:${GOROOT}/bin:$PATH:$HOME/node/bin
-export PATH=~/usr/bin:$PATH
+export PATH=~/.local/bin/:~/usr/bin:${GOROOT}/bin:${GOBIN}:$PATH:$HOME/node/bin
 
 # With the configuration below,
 # I assume that all the local packages are

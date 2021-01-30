@@ -38,8 +38,9 @@ From: https://forums.linuxmint.com/viewtopic.php?t=328790
 I assume those env variables already set:
 
     GOPATH=${HOME}/github/go
+    GOBIN=${GOPATH}/bin
     GOROOT=${HOME}/usr/go
-    PATH=${GOROOT}/bin:${PATH}
+    PATH=${GOROOT}/bin:${GOBIN}:${PATH}
 
 run:
 
