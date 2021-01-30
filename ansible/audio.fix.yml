@@ -1,7 +1,7 @@
 
 - name: "Fix chipmunk effect with headset"
   hosts: localhost
-  # become: true
+  become: yes
   tags:
     - audio
   tasks:
@@ -12,5 +12,5 @@
           regexp: '; alternate-sample-rate = 48000'
           line:     'alternate-sample-rate = 48000'
     - name: Restart audio daemon
-      shell: pulseaudio -k && sudo alsa force-reload
+      shell: pulseaudio -k && alsa force-reload
 

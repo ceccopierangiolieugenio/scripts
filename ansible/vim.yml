@@ -5,6 +5,7 @@
     - vim
   tasks:
     - name: install vim
+      become: yes
       package:
         name: vim
         state: present

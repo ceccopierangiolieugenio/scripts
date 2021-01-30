@@ -20,7 +20,7 @@
 #### fix for the audio 'chipmunk' effect with usb headphones
 From: https://forums.linuxmint.com/viewtopic.php?t=328790
 
-    sudo ansible-playbook -c local -i localhost, audio.fix.yml
+    ansible-playbook -c local -i localhost, audio.fix.yml
 
 #### install and config terminator and fonts
     ansible-playbook -c local -i localhost, terminator.yml -vv

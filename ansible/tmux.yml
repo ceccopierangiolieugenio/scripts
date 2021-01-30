@@ -5,6 +5,7 @@
     - tmux
   tasks:
     - name: install tmux
+      become: yes
       package:
         name: tmux
         state: present
