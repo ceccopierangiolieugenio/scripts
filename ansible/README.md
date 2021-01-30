@@ -4,9 +4,10 @@
     apt update
     apt --yes upgrade
     
-    apt install --yes git gitk
-    apt install --yes python3-venv python3-pip
-    apt install --yes openssh-client openssh-server
+    apt install --yes \
+        git gitk \
+        python3-venv python3-pip \
+        openssh-client openssh-server
     
     apt install --yes ansible
     
