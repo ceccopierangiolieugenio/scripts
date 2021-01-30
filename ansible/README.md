@@ -2,13 +2,13 @@
 
 #### After a new installation
     apt update
-    apt upgrade
+    apt --yes upgrade
     
-    apt install git gitk
-    apt install python3-venv python3-pip
-    apt install openssh-client openssh-server
+    apt install --yes git gitk
+    apt install --yes python3-venv python3-pip
+    apt install --yes openssh-client openssh-server
     
-    apt install ansible
+    apt install --yes ansible
     
     mkdir -p ~/github
     git clone https://github.com/ceccopierangiolieugenio/scripts.git ~/github/scripts
