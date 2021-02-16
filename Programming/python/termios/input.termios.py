@@ -39,7 +39,7 @@ def set_echo(on: bool):
 	"""Toggle input echo"""
 	(iflag, oflag, cflag, lflag, ispeed, ospeed, cc) = termios.tcgetattr(sys.stdin.fileno())
 	if on:
-		lflag |= termios.ECHO # type: ignore
+		lflag |= termios.ECHO  # type: ignore
 	else:
 		lflag &= ~termios.ECHO # type: ignore
 	new_attr = [iflag, oflag, cflag, lflag, ispeed, ospeed, cc]
@@ -58,16 +58,16 @@ def get_key():
 	try:
 		while not False:
 			with Raw(sys.stdin):
-				if not select([sys.stdin], [], [], 0.1)[0]:			#* Wait 100ms for input on stdin then restart loop to check for stop flag
+				if not select([sys.stdin], [], [], 0.1)[0]:     #* Wait 100ms for input on stdin then restart loop to check for stop flag
 					continue
-				input_key += sys.stdin.read(1)						#* Read 1 key safely with blocking on
-				if input_key == "\033":								#* If first character is a escape sequence keep reading
-					with Nonblocking(sys.stdin): 					#* Set non blocking to prevent read stall
+				input_key += sys.stdin.read(1)                  #* Read 1 key safely with blocking on
+				if input_key == "\033":                         #* If first character is a escape sequence keep reading
+					with Nonblocking(sys.stdin):                #* Set non blocking to prevent read stall
 						input_key += sys.stdin.read(20)
 						if input_key.startswith("\033[<"):
 							_ = sys.stdin.read(1000)
 				print("INPUT: "+input_key.replace("\033","<ESC>"))
-				if input_key == "\033" or input_key == "q":	#* Key is "escape" key if only containing \033
+				if input_key == "\033" or input_key == "q":     #* Key is "escape" key if only containing \033
 					break
 				elif input_key.startswith(("\033[<0;", "\033[<35;", "\033[<64;", "\033[<65;")): #* Detected mouse event
 					try:
@@ -75,14 +75,14 @@ def get_key():
 					except:
 						pass
 					else:
-						if input_key.startswith("\033[<35;"):		#* Detected mouse move in mouse direct mode
-							print("mouse Move")
-						elif input_key.startswith("\033[<64;"):		#* Detected mouse scroll up
-							print("mouse Scroll UP")
-						elif input_key.startswith("\033[<65;"):		#* Detected mouse scroll down
-							print("mouse Scroll DOWN")
-						elif input_key.startswith("\033[<0;") and input_key.endswith("m"): #* Detected mouse click release
-							print("mouse Click Release")
+						if input_key.startswith("\033[<35;"):
+							print("mouse Move")          #* Detected mouse move in mouse direct mode
+						elif input_key.startswith("\033[<64;"):
+							print("mouse Scroll UP")     #* Detected mouse scroll up
+						elif input_key.startswith("\033[<65;"):
+							print("mouse Scroll DOWN")   #* Detected mouse scroll down
+						elif input_key.startswith("\033[<0;") and input_key.endswith("m"):
+							print("mouse Click Release") #* Detected mouse click release
 				input_key = ""
 	except Exception as e:
 		print(f'EXCEPTION: Input thread failed with exception: {e}')
@@ -91,10 +91,10 @@ def get_key():
 print("Retrieve Keyboard, Mouse press/drag/wheel Events")
 print("Press q or <ESC> to exit")
 
-mouse_on			= "\033[?1002h\033[?1015h\033[?1006h" 	#* Enable reporting of mouse position on click and release
-mouse_off			= "\033[?1002l" 						#* Disable mouse reporting
-mouse_direct_on		= "\033[?1003h"							#* Enable reporting of mouse position at any movement
-mouse_direct_off	= "\033[?1003l"							#* Disable direct mouse reporting
+mouse_on         = "\033[?1002h\033[?1015h\033[?1006h" #* Enable reporting of mouse position on click and release
+mouse_off        = "\033[?1002l"                       #* Disable mouse reporting
+mouse_direct_on  = "\033[?1003h"                       #* Enable reporting of mouse position at any movement
+mouse_direct_off = "\033[?1003l"                       #* Disable direct mouse reporting
 
 push(mouse_on)
 set_echo(False)
