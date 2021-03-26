@@ -25,7 +25,7 @@ class Demo2:
     def close_windows(self):
         self.master.destroy()
 
-def main(): 
+def main():
     root = tk.Tk()
     app = Demo1(root)
     root.mainloop()
