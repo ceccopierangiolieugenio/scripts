@@ -48,3 +48,7 @@ run:
     mkdir ${HOME}/usr
     wget https://golang.org/dl/go1.15.7.linux-amd64.tar.gz
     tar xvf go1.15.7.linux-amd64.tar.gz -C ${HOME}/usr
+
+#### Setup Dell D6000 Docking Station
+Install the drivers from:
+https://www.synaptics.com/products/displaylink-graphics/downloads/ubuntu
