@@ -26,6 +26,10 @@ class Example(QMainWindow):
         combo1.setInsertPolicy(QComboBox.InsertAtTop)
         combo1.move(50, 90)
 
+        combo1.currentIndexChanged.connect(lambda x: print(f"CIC {x}"))
+        combo1.currentTextChanged.connect(lambda x: print(f"CTC {x}"))
+        combo1.editTextChanged.connect(lambda x: print(f"ETC {x}"))
+
         self.qlabel = QLabel(self)
         self.qlabel.move(50,16)
 
