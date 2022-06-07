@@ -19,6 +19,7 @@ fi
 export EDITOR=vim
 
 alias ll="ls -la --color"
+alias lll='ls -rtla'
 alias grep="grep --color"
 
 export GOPATH=~/github/go
