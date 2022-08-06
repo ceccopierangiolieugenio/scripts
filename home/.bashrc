@@ -22,6 +22,9 @@ alias ll="ls -la --color"
 alias lll='ls -rtla'
 alias grep="grep --color"
 
+# get the name of last filename added/modified in the current dir
+lll1(){ ls -rt1 | tail -n1 ;}
+
 export GOPATH=~/github/go
 export GOBIN=${GOPATH}/bin
 export GOROOT=~/usr/go
