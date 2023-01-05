@@ -3,17 +3,19 @@
 #### After a new installation
     apt update
     apt --yes upgrade
-    
+
     apt install --yes \
         git gitk \
         python3-venv python3-pip \
         openssh-client openssh-server
-    
+
     apt install --yes ansible
-    
+
     mkdir -p ~/github
     git clone https://github.com/ceccopierangiolieugenio/scripts.git ~/github/scripts
-    
+    # Don't try this at home
+    sed -i  's,https://github.com/,git@github.com:,'  ~/github/scripts/.git/config
+
     # Install VScode
     wget "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64" -O /tmp/vscode.deb
     sudo dpkg -i /tmp/vscode.deb
