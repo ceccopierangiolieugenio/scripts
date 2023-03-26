@@ -20,6 +20,7 @@ export EDITOR=vim
 
 alias ll="ls -la --color"
 alias lll='ls -rtla'
+alias ppp='. ~/.venv.python/bin/activate'
 alias grep="grep --color"
 
 # get the name of last filename added/modified in the current dir
