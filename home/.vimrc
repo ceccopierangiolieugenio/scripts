@@ -20,11 +20,8 @@ if has('syntax') && (&t_Co > 2)
   syntax on
 endif
 
-" set mouse drag if we are in a tmux env
-if $TMUX != ''
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
+" set mouse drag
+set ttymouse=xterm2
 
 " use pathogen to handle the Runtime Path Manipulation and plugins
 " https://github.com/tpope/vim-pathogen
