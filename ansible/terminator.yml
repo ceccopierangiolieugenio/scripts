@@ -31,8 +31,8 @@
         dest: "{{ item.dest }}"
         mode: '0664'
       loop:
-        - { "url":   "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Bold/complete/DejaVu%20Sans%20Mono%20Bold%20Nerd%20Font%20Complete%20Mono.ttf",
+        - { "url":   "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Bold/DejaVuSansMNerdFontMono-Bold.ttf"
             "dest" : "~/.fonts/DejaVu Sans Mono Bold Nerd Font Complete Mono.ttf" }
-        - { "url":   "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf",
+        - { "url":   "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/DejaVuSansMono/Regular/DejaVuSansMNerdFontMono-Regular.ttf"
             "dest" : "~/.fonts/DejaVu Sans Mono Nerd Font Complete Mono.ttf" }
 
